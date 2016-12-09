@@ -12,5 +12,5 @@ CarrierWave.configure do |config|
     config.cache_dir = "#{Rails.root}/tmp/uploads"
   end
 
-  config.fog_directory = "wdi23-london-project4-instatram"
+  config.fog_directory = ENV['AWS_INSTATRAM_BUCKET']
 end
