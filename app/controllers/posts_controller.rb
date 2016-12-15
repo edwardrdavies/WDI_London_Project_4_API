@@ -5,7 +5,7 @@ class PostsController < ApplicationController
   # GET /posts
   def index
     @posts = Post.all
-
+    @posts = @posts.reverse
     render json: @posts
   end
 
@@ -31,7 +31,7 @@ class PostsController < ApplicationController
 
   # PATCH/PUT /posts/1
   def update
-    if @post.update(post_params)
+    if @post.update(Uploader.upload(post_params))
       render json: @post
     else
       render json: @post.errors, status: :unprocessable_entity
